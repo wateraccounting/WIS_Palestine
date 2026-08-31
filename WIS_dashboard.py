@@ -664,7 +664,7 @@ with tab_map:
         }
 
         if map_metric == "Aridity class":
-            fig_map = px.choropleth_mapbox(
+            fig_map = px.choropleth_map(
                 merged_reset,
                 geojson=geojson,
                 locations=merged_reset.index,
@@ -679,7 +679,7 @@ with tab_map:
                 title=f"Aridity classification by {unit_label} — {status_period_label}",
             )
         elif map_metric == "SPEI (standardized)":
-            fig_map = px.choropleth_mapbox(
+            fig_map = px.choropleth_map(
                 merged_reset,
                 geojson=geojson,
                 locations=merged_reset.index,
@@ -700,7 +700,7 @@ with tab_map:
                 if merged_reset["CWB"].notna().any()
                 else 1.0
             )
-            fig_map = px.choropleth_mapbox(
+            fig_map = px.choropleth_map(
                 merged_reset,
                 geojson=geojson,
                 locations=merged_reset.index,
@@ -716,7 +716,7 @@ with tab_map:
                 title=f"Climatic Water Balance (CWB, mm) by {unit_label} — {status_period_label}",
             )
         fig_map.update_layout(
-            mapbox_style="carto-positron", margin=dict(l=0, r=0, t=40, b=0)
+            map_style="carto-positron", margin=dict(l=0, r=0, t=40, b=0)
         )
         st.plotly_chart(fig_map, use_container_width=True)
 
